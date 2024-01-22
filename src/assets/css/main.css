@@ -1,0 +1,26 @@
+@import './base.css';
+@import './utility/margin.css';
+@import './utility/padding.css';
+@import './utility/typography.css';
+@import './utility/position.css';
+
+#app {
+  max-width: 1280px;
+  padding: 0 1rem;
+  margin: 0 auto;
+  font-weight: normal;
+}
+
+a,
+.orange {
+  text-decoration: none;
+  color: var(--mb-orange);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    text-decoration: underline;
+  }
+}

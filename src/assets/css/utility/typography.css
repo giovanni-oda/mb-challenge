@@ -1,0 +1,44 @@
+/* Font wheight */
+.mb-font-black {
+  font-weight: var(--mb-text-weight-black) !important;
+}
+.mb-font-bold {
+  font-weight: var(--mb-text-weight-bold) !important;
+}
+.mb-font-medium {
+  font-weight: var(--mb-text-weight-medium) !important;
+}
+.mb-font-regular {
+  font-weight: var(--mb-text-weight-regular) !important;
+}
+.mb-font-light {
+  font-weight: var(--mb-text-weight-light) !important;
+}
+.mb-font-thin {
+  font-weight: var(--mb-text-weight-thin) !important;
+}
+
+/* Font size */
+.mb-text-xs {
+  font-size: var(--mb-font-size-xs) !important;
+}
+.mb-text-small {
+  font-size: var(--mb-font-size-small) !important;
+}
+.mb-text-regular {
+  font-size: var(--mb-font-size-base) !important;
+}
+.mb-text-large {
+  font-size: var(--mb-font-size-large) !important;
+}
+.mb-text-xl {
+  font-size: var(--mb-font-size-xl) !important;
+}
+.mb-text-caption {
+  font-size: 0.78595em !important;
+}
+
+/* Font style */
+.mb-font-italic {
+  font-style: italic !important;
+}

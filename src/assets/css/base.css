@@ -1,0 +1,76 @@
+/* color palette */
+:root {
+  --mb-orange: #ef4723;
+  --mb-orange-acent: #cc2c0a;
+
+  --mb-black: #1d2327;
+  --mb-black-soft: #222222;
+  --mb-black-mute: #474d51;
+
+  --mb-white: #ffffff;
+  --mb-white-soft: #f8f8f8;
+  --mb-white-mute: #f2f2f2;
+}
+
+/* typography  */
+:root {
+  --mb-font-size-xl: 18px;
+  --mb-font-size-large: 16px;
+  --mb-font-size-base: 14px;
+  --mb-font-size-small: 12px;
+  --mb-font-size-xs: 10px;
+
+  --mb-text-weight-black: 900;
+  --mb-text-weight-bold: 600;
+  --mb-text-weight-medium: 500;
+  --mb-text-weight-regular: 400;
+  --mb-text-weight-light: 300;
+  --mb-text-weight-thin: 100;
+}
+
+/* theme variables  */
+:root {
+  --mb-text-primary-light: var(--mb-black);
+  --mb-text-secondary-light: var(--mb-orange);
+  --mb-text-primary-dark: var(--mb-white);
+  --mb-text-secondary-dark: var(--mb-orange);
+
+  --color-background: var(--mb-white);
+  --color-background-soft: var(--mb-white-soft);
+  --color-background-mute: var(--mb-white-mute);
+  --color-text: var(--mb-text-primary-light);
+
+  --section-gap: 160px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--mb-black);
+    --color-background-soft: var(--mb-black-soft);
+    --color-background-mute: var(--mb-black-mute);
+    --color-text: var(--mb-text-primary-dark);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: var(--mb-text-weight-medium);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: var(--mb-font-size-base);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
