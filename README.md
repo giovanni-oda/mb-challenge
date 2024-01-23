@@ -1,6 +1,6 @@
 # mb-challenge
 
-Aplicação desenvolvida em Vue 3 (vite) e Node (express). No frontend foi uilizado praticamente o Vue "puro" com as opções padrões de instalação do Vite, sem adição de pacotes (libs) externos, tais como fremeworks CSS, SSR, pacotes de requisição HTTP (AXIOS) etc, com apenas uma pequena excessão (Maska - gerenciamento de máscaras de input). Ainda a respeito da aplicação no lado do cliente, foi escolhido a versão composite da API com script setup e o PINIA para gerenciamento de estado.
+Aplicação desenvolvida em Vue 3 (vite) e Node (express). No frontend foi utilizado praticamente o Vue "puro" com as opções padrões de instalação do Vite, sem adição de pacotes (libs) externos, tais como fremeworks CSS, SSR, pacotes de requisição HTTP (AXIOS) etc, com apenas uma pequena exceção (Maska - gerenciamento de máscaras de input). Ainda a respeito da aplicação no lado do cliente, foi escolhido a versão composite da API com script setup e o PINIA para gerenciamento de estado.
 
 ## Frontend (Vue)
 
