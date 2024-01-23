@@ -28,7 +28,7 @@ Rodar a aplicação em ambiente local:
 npm run dev
 ```
 
-## BAckend (Node)
+## Backend (Node)
 
 #### Passo 4
 
