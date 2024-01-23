@@ -27,12 +27,13 @@ const router = useRouter()
   <div class="mb-form-actions">
     <div class="mb-btn-steps">
       <mb-buttom-outlined
-        v-if="step > 1"
+        v-if="step > 1 && step < 5"
         class="mb-ml-0 mb-w-75"
         :class="{ 'mb-mr-2': step > 1 }"
         @click="$emit('prevClick')"
       />
       <mb-buttom-base
+        v-if="step < 5"
         class="mb-mx-0 mb-w-100"
         :class="{ 'mb-ml-2': step > 1 }"
         :disabled="disabled"
@@ -48,6 +49,14 @@ const router = useRouter()
       :disabled="false"
     >
       Já tem conta? Acesse sua conta
+    </mb-buttom-text>
+    <mb-buttom-text
+      v-if="step === 5"
+      class="m-mx-0"
+      @click="router.push({ name: 'Login' })"
+      :disabled="false"
+    >
+      Click para acessar sua conta
     </mb-buttom-text>
   </div>
 </template>

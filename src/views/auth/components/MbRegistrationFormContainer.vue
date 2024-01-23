@@ -6,6 +6,7 @@ import MbRegistrationStep1 from './registrationSteps/MbRegistratioStep1.vue'
 import MbRegistrationStep2 from './registrationSteps/MbRegistratioStep2.vue'
 import MbRegistrationStep3 from './registrationSteps/MbRegistratioStep3.vue'
 import MbRegistrationStep4 from './registrationSteps/MbRegistratioStep4.vue'
+import MbRegistrationStep5 from './registrationSteps/MbRegistratioStep5.vue'
 import MbRegsitrationFormActions from './MbRegistrationFormActions.vue'
 
 // Data
@@ -15,7 +16,8 @@ const stterperData = {
   1: { title: 'Seja bem vindo(a)', component: MbRegistrationStep1 },
   2: { title: 'Pessoa Física', component: MbRegistrationStep2 },
   3: { title: 'Senha de acesso', component: MbRegistrationStep3 },
-  4: { title: 'Revise suas informações', component: MbRegistrationStep4 }
+  4: { title: 'Revise suas informações', component: MbRegistrationStep4 },
+  5: { title: 'Usuário cadastrado', component: MbRegistrationStep5 }
 }
 </script>
 

@@ -34,10 +34,12 @@ const { validateCPF, validateCNPJ } = useValidationLib()
 onActivated(() => {
   //console.log('activated')
   initFormData()
+  fetchError.value = null
 })
 
 // Data
 const formValid = ref(true)
+const fetchError = ref(null)
 const formData = reactive({
   email: { value: '', error: false },
   type: { value: '', error: false },
@@ -68,11 +70,17 @@ watch(validate, (val) => {
 })
 
 // Methods
-const next = () => {
+const next = async () => {
   formValid.value = validateForm()
   if (formValid.value) {
     const payload = JSON.parse(JSON.stringify(userStore.getUser))
-    console.log('Next - step4', payload)
+    // console.log('Next - step4', payload)
+    const response = await userStore.createUser(payload)
+    if (!response.error) {
+      emit('next')
+    } else {
+      fetchError.value = 'ATENÇÃO! Já existe um usuário cadastrado com esse email.'
+    }
   }
 }
 const validateForm = () => {
@@ -262,6 +270,9 @@ const resetAllFieldsErrors = () => {
           @input="resetErrorField('email')"
         />
       </div>
+      <div v-if="fetchError" class="mb-fetch-error-alert mb-pa-2 mb-mb-2">
+        <span>{{ fetchError }}</span>
+      </div>
       <div v-if="registrationType === 'PF'">
         <mb-input-base
           v-model="formData.personalData.name.value"
@@ -392,5 +403,14 @@ const resetAllFieldsErrors = () => {
 <style scoped>
 #orange-step {
   color: var(--mb-orange) !important;
+}
+.mb-fetch-error-alert {
+  background: #ffe5e5;
+  border: 1px solid #b20000;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.mb-fetch-error-alert span {
+  color: #b20000;
 }
 </style>

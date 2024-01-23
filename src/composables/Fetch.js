@@ -1,17 +1,23 @@
-import { ref } from "vue";
-
-export async function useFetch(url) {
-  const data = ref(null);
-  const error = ref(null);
+export async function useFetch(method, url, payload) {
+  let status = null
+  let data = null
+  let error = null
 
   try {
-    const res = await fetch(url);
-    const json = await res.json();
-    // console.log("json", json);
-    data.value = json;
+    const res = await fetch(url, {
+      method: method,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    const jsonRes = await res.json()
+    status = jsonRes.status
+    data = jsonRes.data || null
+    error = jsonRes.error || null
   } catch (err) {
-    error.value = err;
+    error = err
   }
 
-  return { data, error };
+  return { status, data, error }
 }

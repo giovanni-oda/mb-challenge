@@ -1,14 +1,33 @@
 // imports
-const express = require('express')
-const config = require('./lib/config')
+import express, { json } from 'express'
+import cors from 'cors'
 
 // consts
 const app = express()
-app.use(express.json())
-const port = config.httpPort
+app.use(cors())
+app.use(json())
+const port = 3000
 
 // state
-const allUsers = []
+const allUsers = [
+  {
+    email: 'giovanni_oda@yahoo.com.br',
+    type: 'PF',
+    personalData: {
+      name: 'Giovanni Oda',
+      document: '639.417.310-09',
+      birthDay: '24/08/1977',
+      phone: '(61) 9 8402-2100'
+    },
+    companyData: {
+      companyName: '',
+      document: '',
+      oppeningDate: '',
+      phone: ''
+    },
+    password: 'a1234567'
+  }
+]
 const user = {}
 
 // Routes
@@ -19,7 +38,7 @@ app
       next()
     } else {
       res.status(406).setHeader('Content-Type', 'application/json')
-      res.json({ status: 406, message: 'Method not allowed' })
+      res.json({ status: 406, error: 'Method not allowed' })
     }
   })
   .get((req, res) => {
@@ -69,10 +88,10 @@ app
     if (isValid) {
       allUsers.push(regData)
       res.status(201).setHeader('Content-Type', 'application/json')
-      res.json({ status: 201, message: 'Registration created' })
+      res.json({ status: 201, data: { message: 'Registration created' } })
     } else {
-      res.status(403).setHeader('Content-Type', 'application/json')
-      res.json({ status: 403, message: errMsg })
+      res.status(400).setHeader('Content-Type', 'application/json')
+      res.json({ status: 400, error: errMsg })
     }
   })
 
@@ -84,12 +103,12 @@ app
       next()
     } else {
       res.status(406).setHeader('Content-Type', 'application/json')
-      res.json({ status: 406, message: 'Method not allowed' })
+      res.json({ status: 406, error: 'Method not allowed' })
     }
   })
   .get((req, res) => {
     res.status(200).setHeader('Content-Type', 'application/json')
-    res.json(allUsers)
+    res.json({ status: 201, data: allUsers })
   })
 
 app
@@ -100,12 +119,12 @@ app
       next()
     } else {
       res.status(406).setHeader('Content-Type', 'application/json')
-      res.json({ status: 406, message: 'Method not allowed' })
+      res.json({ status: 406, error: 'Method not allowed' })
     }
   })
   .get((req, res) => {
     res.status(200).setHeader('Content-Type', 'application/json')
-    res.json(user)
+    res.json({ status: 200, data: user })
   })
   .put((req, res) => {
     res.end('Update a new user')
@@ -116,7 +135,7 @@ app
 
 app.all('*', function (req, res) {
   res.status(406).setHeader('Content-Type', 'application/json')
-  res.json({ status: 404, message: 'Not found' })
+  res.json({ status: 404, error: 'Not found' })
 })
 
 //
