@@ -1,35 +1,48 @@
 # mb-challenge
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicação desenvolvida em Vue 3 (vite) e Node (express). No frontend foi uilizado praticamente o Vue "puro" com as opções padrões de instalação do Vite, sem adição de pacotes (libs) externos, tais como fremeworks CSS, SSR, pacotes de requisição HTTP (AXIOS) etc, com apenas uma pequena excessão (Maska - gerenciamento de máscaras de input). Ainda a respeito da aplicação no lado do cliente, foi escolhido a versão composite da API com script setup e o PINIA para gerenciamento de estado.
 
-## Recommended IDE Setup
+## Frontend (Vue)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+#### Passo 1
 
-## Customize configuration
+Clone o repositório:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+```sh
+git clone https://github.com/giovanni-oda/mb-challenge.git
+```
 
-## Project Setup
+#### Passo 2
+
+Instalar as dependências:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+#### Passo 3
+
+Rodar a aplicação em ambiente local:
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+## BAckend (Node)
+
+#### Passo 4
+
+Instalar dependências:
 
 ```sh
-npm run build
+cd server
+npm install
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+#### Passo 5
+
+Rodar API server:
 
 ```sh
-npm run lint
+node index.js
 ```
